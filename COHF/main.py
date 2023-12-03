@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 from dataloader import load_data
 from model import COHF
-from utils import euclidean_dist, eva_score, get_dataset_info, get_val_dataset_info, kl_loss, setup_seed
+from utils import euclidean_dist, eva_score, get_dataset_info, get_val_dataset_info, kl_loss
 from collections import defaultdict
 
 file_dir = "/Dataset-server/"
@@ -37,8 +37,6 @@ def main(args):
     avg_macro_gl = []
 
     for epoch in range(args.n_epoch):    
-        if args.set_seed:
-            setup_seed(42)
         model.train()
         # pred_layer.train()
         optimizer.zero_grad()
@@ -160,8 +158,8 @@ if __name__ == '__main__':
     parser.add_argument('--k_spt', type=int, default=3)
     parser.add_argument('--k_qry', type=int, default=5)
 
-    parser.add_argument('--n_tasks', type=int, default=20)
-    parser.add_argument('--subg_type', type=str, default='random_walk')
+    parser.add_argument('--n_tasks', type=int, default=100)
+    parser.add_argument('--subg_type', type=str, default='2_hop')
 
     parser.add_argument('--walk_length', type=int, default=10)
     parser.add_argument('--walk_repeat', type=int, default=20)
