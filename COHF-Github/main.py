@@ -248,63 +248,17 @@ if __name__ == '__main__':
     model_params_dict = defaultdict(list)
       
     #e2_layer
-    model_params_dict['e2_adj_agg'] = ['adj_single', 'adj_multi']
-    model_params_dict['e2_diff_adj_input'] = ['single', 'add', 'time']
-    model_params_dict['e2_mlp_act'] = ['sigmoid', 'tanh', 'relu', 'leaky_relu']
-    model_params_dict['e2_mlp_drop'] = [0.4, 0.6]
-    model_params_dict['e2_mlp_dims'] = ['[100, 20]', '[50]']
-    model_params_dict['e2_gn_act'] = ['relu', 'leaky_relu']
-    model_params_dict['e2_gn_drop'] = [0.4, 0.6]
-    model_params_dict['e2_gn_conv'] = ['gcn', 'sage', 'graph_conv','ori_conv']
     model_params_dict['e2_gn_layer'] = [1, 2]
-    model_params_dict['e2_gn_dim'] = [20, 40]
-    model_params_dict['e2_adopt_comm'] = [True, False]
-    model_params_dict['e2_dim'] = [20, 40]
-    model_params_dict['e2_att_dim'] = [20, 40]
 
     #z1_layer
-    model_params_dict['z1_dis_agg'] = ['seprate', 'concat']
     model_params_dict['z1_gn_layer'] = [1, 2]
-    model_params_dict['z1_gn_dim'] = [20, 40]
-    model_params_dict['z1_gn_act'] = ['relu', 'leaky_relu']
-    model_params_dict['z1_gn_drop'] = [0.4, 0.6]
-    model_params_dict['z1_pool'] = ['sum', 'mean', 'max']
-    model_params_dict['z1_conv'] = ['ori_conv', 'gcn', 'sage', 'graph_conv']
-    model_params_dict['z1_mlp_dims'] = ['[20]', '[40, 20]', '[10]', '[20, 10]']
-    model_params_dict['z1_mlp_act'] = ['tanh', 'relu', 'sigmoid', 'none']
-    model_params_dict['z1_mlp_drop'] = [0.4, 0.6]
-    model_params_dict['z1_dim'] = [10, 20, 40]
 
     #z2_layer
-    model_params_dict['z2_dis_agg'] = ['seprate', 'concat']
-    model_params_dict['z2_adj_gen'] = ['seprate', 'concat']
     model_params_dict['z2_gn_layer'] = [1, 2]
-    model_params_dict['z2_gn_dim'] = [20, 40]
-    model_params_dict['z2_gn_act'] = ['relu', 'leaky_relu']
-    model_params_dict['z2_gn_drop'] = [0.4, 0.6]
-    model_params_dict['z2_conv'] = ['ori_conv', 'gcn', 'sage', 'graph_conv']
-    model_params_dict['z2_feat_type'] = ['ori', 'e2']
-    model_params_dict['z2_mlp_dims'] = ['[10]', '[20, 10]', '[20]', '[40, 20]']
-    model_params_dict['z2_mlp_act'] = ['tanh', 'relu', 'sigmoid', 'none']
-    model_params_dict['z2_mlp_drop'] = [0.4, 0.6]
-    model_params_dict['z2_dim'] = [10, 20, 40]
-
-    #pred_layer
-    model_params_dict['y_conv'] = ['mlp', 'ori_conv']
-    model_params_dict['y_gn_dim'] = [20, 40]
-    model_params_dict['sample_freq'] = [1, 2]
 
     #reconstruction
-    model_params_dict['g_e1_dim'] = [20, 40]
-    model_params_dict['g_pos_edge_num'] = [40, 60]
     model_params_dict['g_neg_ratio'] = [0.4, 0.6]
-    model_params_dict['g_mlp_act'] = ['tanh', 'relu', 'sigmoid', 'none']
 
-    #train
-    model_params_dict['n_epoch'] = [80, 100, 120]
-    model_params_dict['lr'] = [0.001, 0.005, 0.01]
-
-    
 
     for n_way in [2, 3]:
         args.n_way = n_way
